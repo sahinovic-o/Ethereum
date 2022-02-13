@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;&display=swap');
+
+$headings: #333333;
+$text: #666666;
+$violet: #d2d2f9;
+$tirkiz: #ccfcff;
+$lightblue: #e1fefa;
+$orange: #ffe3d3;
+$pink: #ffe5f9;
+$gray: #e8e8fc;
+$blue: #1c1ce1;
+$white: #fff;
+$lightgray: #fcfcfc;
+$fontSize: 16px;
+$padding: 50px 0;
+$transition: .3s ease;
+$fontFamily: 'Roboto', sans-serif;
+/****************
+mixins
+****************/
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+/****************
+basic styles
+****************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    color: $text;
+    line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: $headings;
+}
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+ul {
+    list-style: none;
+}
+a {
+    transition: $transition;
+}
+.container {
+    max-width: 1504px;
+    width: 100%;
+    margin: auto;
+}
+button {
+    padding: 10px;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+    font-weight: 300;
+    letter-spacing: 1px;
+    border-radius: 3px;
+}
+.btnTransparent {
+    border: 1px solid $text;
+    background: transparent;
+    &:hover {
+        box-shadow: 3px 3px $violet;
+        color: $blue;
+        border: 1px solid $blue;
+    }
+}
+ .btnBlue {
+  @extend .btnTransparent;
+  background: $blue;
+  color: $white;
+  &:hover{
+      color: $white;
+      background: lighten($blue, 5%);
+  }
+}
+/****************
+nav
+****************/
+nav {
+    border-bottom: 1px solid #e5e5e5;
+    @include flex(space-between, center, row);
+    padding: 15px 25px;
+    ul {
+        @include flex(space-between, center, row);
+        li {
+            margin-left: 20px;
+            i {
+                color: #b2b2b2;
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+    }
+    article {
+        @include flex(space-between, center, row);
+        form {
+            input {
+                border: 1px solid #7f7f7f;
+                border-radius: 3px;
+                padding: 10px;
+                font-size: 1rem;
+            }
+            i {
+                position: relative;
+                left: -30px;
+            }
+        }
+        a {
+            margin-left: 10px;
+            i {
+                font-size: 1.3rem;
+                &:last-child {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+    a {
+        color: #515151;
+        text-decoration: none;
+        font-weight: 300;
+        &:hover {
+            color: $blue;
+        }
+    }
+}
+
+/****************
+header
+****************/
+header {
+    img {
+        width: 100%;
+        height: 440px;
+        object-fit: cover;
+    }
+}
+
+/****************
+welcome
+****************/
+.welcome {
+    text-align: center;
+    padding: $padding;
+    h4 {
+        font-weight: 300;
+        margin-bottom: 30px;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    p {
+        padding: 30px 0;
+    }
+    button {
+        @extend .btnTransparent;
+    }
+}
+
+/****************
+getStarted
+****************/
+.getStarted {
+    @include flex(space-between, center, row);
+    article {
+        flex: 0 0 48%;
+        &:first-child {
+            padding: 100px;
+            p {
+                font-size: 1.2rem;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/****************
+cards
+****************/
+.cards {
+    padding: 50px;
+    background: $lightgray;
+    @include flex(space-between, center, row);
+    a {
+        flex: 0 0 49%;
+        text-decoration: none;
+        border: 1px solid $headings;
+        min-height: 400px;
+        margin-bottom: 30px;
+        transition: .1s ease-in-out;
+        box-shadow: 4px 4px  $violet;
+        &:hover {
+            box-shadow: 0 0 30px lightgray;
+            transform: scale(102%);
+            border-radius: 3px;
+            background-color: #f8f8f8;
+        }
+        article {
+            div {
+                &:first-child {
+                    background: rgba(0, 0, 0, 0) radial-gradient(46.28% 66.31% at 66.95% 58.35%, rgb(230, 230, 247) 0%, rgb(231, 237, 250) 50%, rgb(233, 251, 250) 100%) repeat scroll 0% 0%;
+                    min-height: 260px;
+                    border-bottom: 1px solid lightgray;
+                    @include flex(center, flex-end, row);
+                }
+                &:last-child {
+                    padding: 30px 30px 0 30px;
+                    p {
+                        color: $text;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+.tirkiz {
+    background: $tirkiz;
+}
+.orange {
+    background: $orange;
+}
+.lightblue{
+    background: $lightblue;
+}
+.pink{
+    background: $pink;
+}
+
+.colors {
+    padding: $padding;
+    @include flex(space-between, center, row);
+    border-top: 1px solid $headings;
+    article {
+        flex: 0 0 49%;
+        img {
+            width: 100%;
+        }
+        p {
+            padding: 0 0 30px 0;
+            font-size: 1.2rem;
+        }
+        h2 {
+            font-family: serif;
+        }
+        &:last-child {
+            padding: 100px;
+        }
+    }
+    &:nth-child(odd) {
+        :last-child {
+            order: -1;
+        }
+    }
+}
+
+.gray{
+    background: $gray;
+    @include flex(space-evenly, center, row);
+    border-bottom: 1px solid $headings;
+    article{
+        &:first-child{
+            border: 1px solid $headings;
+            box-shadow: 4px 4px $violet;
+            flex: 0 0 45%;
+            .header{
+                background: $lightgray;
+                padding: 15px;
+                border-bottom: 1px solid lightgrey;
+                @include flex(space-between, center, row);
+                .color{
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    &:nth-child(1){
+                        background: #d46666;
+                    }
+                    &:nth-child(2){
+                        background:  #ffe78e;
+                    }
+                    &:nth-child(3){
+                        background: #6fc4a0;
+                    }
+                }
+
+            }
+            a {
+                text-decoration: none;
+                border-bottom: 1px solid lightgray;
+                display: block;
+                padding: 15px;
+                background: $white;
+                font-weight: 300;
+                &:hover{
+                    background: $violet;
+                }
+                h5{
+                    font-size: 1rem;
+                    font-weight: 300;
+                    color: #373737;
+                }
+
+                p{
+                    padding-bottom: 0;
+                    font-size: 1rem;
+                    color: #767676;
+                }
+            }
+        }
+        &:last-child{
+            flex: 0 0 45%;
+        }
+    }
+}
+
+/****************
+etheriumToday
+****************/
+/*.etheriumToday{
+    padding: 50px 30px;
+    & > p{
+        font-size: 1.3rem
+    }
+    article{
+        @include flex(space-between, center, row);
+        margin-top: 40px;
+        .col{
+            flex: 0 0 50%;
+            border: 1px solid $headings;
+            min-height: 300px;
+            @include flex(space-between,flex-start, center, column);
+            padding: 30px;
+            h3{
+                font-weight: 400;
+                font-size: 1.3rem;
+                text-transform: uppercase;
+            }
+            span{
+                font-size: 4rem;
+                color: $headings;
+                font-weight: 600;
+            }
+            a{
+                color: $text;
+                border: 2px solid $blue;
+                width: 30px;
+                height: 30px;
+                display: inline-block;
+                text-align: center;
+                line-height: 30px;
+                border-radius: 50%;
+                position: relative;
+                top: -7px;
+                left: -7px;
+                &:hover{
+                    color: $blue;
+                }
+            }
+        }
+    } POGLEDATI RAZLIKU IZMEDJU MOG I SLOBINOG KODAAAAAAAA
+}*/
+
+.etheriumToday {
+    padding: 50px 30px;
+    & > p {
+        font-size: 1.3rem;
+    }
+    article {
+        @include flex(space-between, center, row);
+        margin-top: 40px;
+        .col {
+            flex: 0 0 50%;
+            border: 1px solid $headings;
+            min-height: 300px;
+            @include flex(space-between, flex-start, column);
+            padding: 30px;
+            h3 {
+                font-weight: 400;
+                font-size: 1.3rem;
+                text-transform: uppercase;
+            }
+            span {
+                font-size: 4rem;
+                color: $headings;
+                font-weight: 600;
+            }
+            a {
+                color: $text;
+                border: 2px solid $headings;
+                width: 30px;
+                height: 30px;
+                display: inline-block;
+                text-align: center;
+                line-height: 30px;
+                border-radius: 50%;
+                position: relative;
+                top: -7px;
+                left: 7px;
+                &:hover {
+                    color: $blue;
+                    border: 2px solid $blue;
+                }
+            }
+        }
+    }
+}
+
+/****************
+exploreEtherium
+****************/
+.exploreEtherium {
+    padding: 50px 30px;
+    article {
+        padding: 0px;
+        a {
+            flex: 0 0 32%;
+        }
+    }
+}
+
+/****************
+contribute
+****************/
+.contribute {
+    background: linear-gradient(45deg, $gray, $gray, $tirkiz);
+    border-radius: 5px;
+    @include flex(space-between, center, row);
+    article:first-child {
+        flex: 0 0 55%;
+        padding: 50px 100px;
+        p {
+            padding: 30px 0;
+            font-weight: 300;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+    }
+    article:last-child {
+        flex: 0 0 40%;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/****************
+footer
+
+footer {
+    padding: $padding;
+    article {
+        a {
+            color: #b2b2b2;
+            text-decoration: none;
+            font-size: .9rem;
+            &:hover {
+                color: $blue;
+            }
+        }
+        &:first-child {
+            @include flex(space-between, center, row);
+            a {
+                font-size: 2rem;
+                margin-left: 10px;
+            }
+        }
+        &:last-child {
+            @include flex(space-between, flex-start, row);
+            margin-top: 20px;
+            h5 {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+****************/
